@@ -26,6 +26,13 @@ const TextInput = styled.input`
         padding: 7px;
         font-weight: 600;
     }
+    @media screen and (min-width: 768px) {
+        font-size: 2rem;
+        border-radius: 15px;
+        &:focus{
+            font-size: 2rem;
+        }
+    }
 `
 
 const TextBox = ({placeholder = "", type = "text", children =""}) =>{

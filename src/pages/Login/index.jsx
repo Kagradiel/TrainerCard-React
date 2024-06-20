@@ -1,21 +1,15 @@
-import TextBox   from "../../components/TextBox";
+import TextBox from "../../components/TextBox";
 import ButtonDefault from "../../components/ButtonDefault";
 import styled from "styled-components";
 import Title from "../../components/Title";
+import ColoredBackground from "../../components/ColoredBackground";
 
-const Bg = styled.div`
-    width: 100%;
-    height: auto;
-    min-height: 70vh;
-    background-color: rgba(202,89,89, 0.83);
-    border-radius: 0 0 40px 40px;
-    box-shadow: 0px 5px 10px #bfbdbd,
-                0px 5px 10px #f2f2f2;
-`
+
 
 const LoginOrganizer = styled.section`
-    width: 100vw;
-    height: 40vh;
+    width: 100%;
+    height: 90vh;
+    box-sizing: border-box;
     padding: 15vh 0 22vh 0;
     gap: 5vh;
     display: flex;
@@ -33,6 +27,7 @@ const LoginOrganizer = styled.section`
             gap: 7px;
             button{
                 width: 73vw;
+                height: 29px;
             }
             hr{
                 width: 70vw;
@@ -41,27 +36,74 @@ const LoginOrganizer = styled.section`
             }
         }
     }
+    @media screen and (min-width: 768px) {
+        form{
+            section{
+                width: 50vw;
+                align-items: center;
+                gap: 15px;
+                input{
+                    width: 50vw;
+                }
+                button{
+                    height: 70px;
+                }
+                hr{
+                    display: none;
+                }
+            }
+            section:nth-child(2){
+                flex-direction: row;
+                width: 51vw;
+                
+            }
+        }
+    }  
+    @media screen and (min-width: 1024px){
+        flex-direction: row;
+        
+        form{
+            section{
+                width: 30vw;
+                input{
+                    width: 20vw;
+                }
+                button{
+                    width: 20vw;
+                    height: 55px;
+                }
+                hr{
+                    display: flex;
+                    width: 19vw;
+                }
+            }
+            section:nth-child(2){
+                flex-direction: column;
+                width: 51vw; 
+            }
+        }
+    } 
 `
 
-const Login = () =>{
+const Login = () => {
 
     return (
-        <Bg>
-        <LoginOrganizer>
-            <Title>Trainer Card</Title>
-            <form>  
-                <section>
-                    <TextBox placeholder="Username"/>
-                    <TextBox placeholder="Password" type="password"/>
-                </section>
-                <section>
-                    <ButtonDefault>SignIn</ButtonDefault>
-                    <hr/>
-                    <ButtonDefault>SignUp</ButtonDefault>
-                </section>
-            </form>
-        </LoginOrganizer>
-        </Bg>
+        <ColoredBackground>
+            <LoginOrganizer>
+                <Title>Trainer Card</Title>
+                <form>
+                    <section>
+                        <TextBox placeholder="Username" />
+                        <TextBox placeholder="Password" type="password" />
+                    </section>
+                    <section>
+                        <ButtonDefault>Signin</ButtonDefault>
+                        <hr />
+                        <ButtonDefault>Signup</ButtonDefault>
+                    </section>
+                </form>
+            </LoginOrganizer>
+        </ColoredBackground>
     )
 
 }

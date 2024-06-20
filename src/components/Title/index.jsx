@@ -7,11 +7,14 @@ const TheTitle = styled.h1`
     width: 60%;
     font-size: 1.5rem;
     text-align: center;
+    @media screen and (min-width: 768px) {
+        font-size: 3.5rem;
+    }
 `
 
-const Title = ({children}) =>{
+const Title = ({ children }) => {
 
-    return(
+    return (
 
         <TheTitle>{children}</TheTitle>
 
