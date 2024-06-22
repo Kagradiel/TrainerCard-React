@@ -27,11 +27,19 @@ const TextInput = styled.input`
         font-weight: 600;
     }
     @media screen and (min-width: 768px) {
-        font-size: 2rem;
-        border-radius: 15px;
+        font-size: 1.5rem;
+        border-radius: 8px;
+        height: 30px;
+        width: 40vw;
         &:focus{
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
+    }
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
+        font-size: .9rem;
+        border-radius: 5px;
+        height: 25px;
+        width: 22.5vw;
     }
 `
 

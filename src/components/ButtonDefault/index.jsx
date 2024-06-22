@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 const Btn = styled.button`
     background-color: #CA5959;
+    width: 73vw;
+    height: 31px;
     border: none;
     border-radius: 5px;
     text-align: center;
@@ -19,8 +21,16 @@ const Btn = styled.button`
         transition: .5s;
     }
     @media screen and (min-width: 768px) {
-        font-size: 1.8rem;
-        border-radius: 12px;
+        font-size: 1.6rem;
+        border-radius: 5px;
+        height: 40px;
+        width: 41vw;
+    }
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
+        height: 35px;
+        width: 23vw;
+        border-radius: 5px;
+        font-size: 1rem;
     }
 `
 

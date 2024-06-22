@@ -10,9 +10,9 @@ const Bg = styled.div`
     box-shadow: 0px 5px 10px #bfbdbd,
                 0px 5px 10px #f2f2f2;
     @media screen and (min-width: 768px) {
-        min-height: 90vh;
+        min-height: 85vh;
     }
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) and (orientation: landscape) {
         width: 95%;
         border-radius: 0 0 130px 0;
     }

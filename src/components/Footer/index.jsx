@@ -39,6 +39,9 @@ const Foot = styled.footer`
         flex-direction: row;
         justify-content: space-between;
         padding: 0 30px;
+        p{
+            font-size: 1rem;
+        }
         a{
             justify-content: flex-end;
         }
@@ -50,7 +53,7 @@ const Footer = () => {
 
     let iconSize = 0;
 
-    window.innerWidth < 768 ? iconSize = 50 : iconSize = 80;
+    window.innerWidth < 768 || window.innerWidth > 1024  ? iconSize = 50 : iconSize = 80;
 
 
     return (

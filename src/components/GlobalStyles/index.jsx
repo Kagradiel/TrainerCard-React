@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
         src: local("Noto Sans"), local("NotoSans"), url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
     }
 
+    ::selection{
+        background-color: #f9e5cd;
+        color: #CA5959;
+    }
+
     html {
         line-height: 1.15; 
         -webkit-text-size-adjust: 100%; 
