@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { useSettingsContext } from "../../hooks/useSettingsContext";
 
 
 const Btn = styled.button`
-    background-color: #CA5959;
+    background-color: ${props => props.$colorSettings.color};
     width: 73vw;
     height: 31px;
     border: none;
@@ -10,14 +11,17 @@ const Btn = styled.button`
     text-align: center;
     text-decoration: none;
     font-size: 0.9rem;
-    color: #fffbf5;
+    color: ${props => props.$colorSettings.whiteHighlight};
     font-weight: 600;
     cursor: pointer;
-    box-shadow:  0px  2px 10px #d06161,
-                 0px  2px 10px #8c5050;
+    box-shadow:  0px  1px 12px #5b5b5977;
     &:hover{
-        color: #CA5959;
-        background-color: #fffbf5;
+        color: ${props => props.$colorSettings.isDark ? 
+            props => props.$colorSettings.whiteHighlight :
+            props => props.$colorSettings.color};
+        background-color: ${props => props.$colorSettings.isDark ? 
+            props => props.$colorSettings.whiteBg :
+            props => props.$colorSettings.whiteHighlight};
         transition: .5s;
     }
     @media screen and (min-width: 768px) {
@@ -36,9 +40,11 @@ const Btn = styled.button`
 
 const ButtonDefault = ({children}) => {
 
+    const { globalSettings } = useSettingsContext();
+
     return(
 
-        <Btn>{children}</Btn>
+        <Btn $colorSettings={globalSettings} >{children}</Btn>
 
     )
 

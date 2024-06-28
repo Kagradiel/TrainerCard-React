@@ -3,35 +3,26 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-    
-    /*   used colors
-        color-bg-light:                #FEF5EA;
-        color-light:                   #fffbf5;
-        color-black:                   #000000;
-        color-white:                   #ffffff;
-        color-theme-red:               #CA5959;
-        color-less-opacity-red:        rgba(202,89,89, 0.83);
-    */
-
     @font-face {
         font-family: "Noto Sans", sans-serif;
         src: local("Noto Sans"), local("NotoSans"), url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
     }
 
     ::selection{
-        background-color: #f9e5cd;
-        color: #CA5959;
+        background-color: ${ props => props.$colorSettings.whiteBg};
+        color: ${ props => props.$colorSettings.color};
     }
 
     html {
         line-height: 1.15; 
         -webkit-text-size-adjust: 100%; 
         font-family:"Noto Sans";
+        -webkit-tap-highlight-color: transparent;
     }
     body {
         margin: 0;
         min-height: 100vh;
-        background-color: #FEF5EA;
+        background-color: ${props => props.$colorSettings.whiteBg};
     }
     main {
         display: block;

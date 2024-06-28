@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useSettingsContext } from "../../hooks/useSettingsContext";
 
 
 const TextInput = styled.input`
@@ -6,10 +7,11 @@ const TextInput = styled.input`
     height: 3.7vh;
     border-radius: 6px;
     border: none;
-    background-color: #fffbf5;
-    box-shadow: inset 0px  2px 8px #bfbdbd,
-                inset 0px -2px 8px #f6f6f6;
-    color: #CA5959;
+    background-color: ${props => props.$colorSettings.whiteHighlight};
+    box-shadow: ${props => props.$colorSettings.isDark === true ? "" :  
+                `inset 0px  2px 8px #bfbdbd,
+                inset 0px -2px 8px #f6f6f6`};
+    color: ${props => props.$colorSettings.color};
     font-size: 1rem;
     opacity: 1; //firefox
     padding: 7px;
@@ -17,11 +19,11 @@ const TextInput = styled.input`
     &:focus{
         outline:none;
         font-size: 1rem;
-        color: #CA5959;
+        color: ${props => props.$colorSettings.color};
         font-weight: 600;
     }
     &::placeholder{
-        color: #CA5959;    
+        color: ${props => props.$colorSettings.color};    
         opacity: 1; //firefox
         padding: 7px;
         font-weight: 600;
@@ -43,9 +45,12 @@ const TextInput = styled.input`
     }
 `
 
-const TextBox = ({placeholder = "", type = "text", children =""}) =>{
+const TextBox = ({placeholder = "", type = "text"}) =>{
+
+    const { globalSettings } = useSettingsContext();
+
     return(
-        <TextInput type={type} placeholder={placeholder}/>
+        <TextInput $colorSettings={globalSettings} type={type} placeholder={placeholder}/>
     )
 }
 

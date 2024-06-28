@@ -1,28 +1,63 @@
 import styled from "styled-components";
-import ColorChanger from "./ColorChanger";
+import ColorMenuButton from "./ColorChanger";
 import SelectLang from "./SelectLang";
+import ColorMenu from "./ColorMenu";
+import { useState } from "react";
 
 
 const Changes = styled.div`
     display: flex;
-    gap: 15px;
-    align-self: center;
+    flex-direction: column;
     align-items: center;
-    margin-top: 15px;
+    .menuButtons{
+        display: flex;
+        gap: 15px;
+        align-self: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .colorsMenu{
+        position: absolute;
+        display: ${ props => props.$togglePanel ? "flex" : "none"};
+        align-items: center;
+        justify-content: center;
+        margin-top: 43px; 
+    }   
     @media screen and (min-width: 768px) {
-            margin: 50px 0 -50px 0;
+        .colorsMenu{
+            margin-top: 60px; 
         }
+    }
     @media screen and (min-width: 1024px) and (orientation: landscape){
-        align-self: flex-start;
-        margin: 15px 0 0 15px;    
-        
+        align-items: flex-start;
+        .menuButtons{
+            margin: 15px 0 0 15px;  
+            flex-direction: row-reverse ;
+        } 
+        .colorsMenu{
+            margin: 45px 0 0 15px;  
+        }
+    }
+    
 `
 
-const ChangesMenu = ({languages}) => { 
-    return(
-        <Changes>
-            <SelectLang languages={languages}/>
-            <ColorChanger/>
+const ChangesMenu = () => {
+
+    const [toggleColorPanel, setToggleColorPanel] = useState(false);
+
+
+    return (
+        <Changes $togglePanel={toggleColorPanel}>
+            <div className="menuButtons">
+                <SelectLang />
+                <ColorMenuButton
+                    toggleColorPanel={toggleColorPanel} 
+                    setToggleColorPanel={setToggleColorPanel} 
+                />
+            </div>
+            <div className="colorsMenu">
+                <ColorMenu/>
+            </div>
         </Changes>
     )
 }

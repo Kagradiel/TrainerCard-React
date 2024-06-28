@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaGithub } from "react-icons/fa";
+import { useSettingsContext } from "../../hooks/useSettingsContext";
 
 
 const Foot = styled.footer`
@@ -12,8 +13,8 @@ const Foot = styled.footer`
     p{
         display: flex;
         align-items: center;
-        border-left: 2px solid rgba(202,89,89, 0.83);
-        color: rgba(202,89,89, 0.83);
+        border-left: 2px solid ${props => props.$colorSettings.colorBg};
+        color: ${props => props.$colorSettings.colorBg};
         padding-left: 4px;
         font-size: 1rem;
         font-weight: 700;
@@ -54,13 +55,13 @@ const Footer = () => {
     let iconSize = 0;
 
     window.innerWidth < 768 || window.innerWidth > 1024  ? iconSize = 50 : iconSize = 80;
-
+    const { globalSettings } = useSettingsContext();
 
     return (
-
-        <Foot>
+        
+        <Foot $colorSettings={globalSettings}>
             <p>Non-profit project</p>
-            <a href="https://github.com/Kagradiel"><FaGithub color="rgba(202,89,89, 0.83)" size={iconSize} /></a>
+            <a href="https://github.com/Kagradiel"><FaGithub color={globalSettings.colorBg} size={iconSize} /></a>
         </Foot>
 
     )

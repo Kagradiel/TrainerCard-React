@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { useSettingsContext } from "../../hooks/useSettingsContext";
 
 
 const TheTitle = styled.h1`
     font-family: "Press Start 2P";
-    color: #fffbf5;
+    color: ${props => props.$colorSettings.whiteHighlight};
     width: 60%;
     font-size: 1.8rem;
     text-align: center;
@@ -17,9 +18,11 @@ const TheTitle = styled.h1`
 
 const Title = ({ children }) => {
 
+    const { globalSettings } = useSettingsContext();
+
     return (
 
-        <TheTitle>{children}</TheTitle>
+        <TheTitle $colorSettings={globalSettings}>{children}</TheTitle>
 
     )
 

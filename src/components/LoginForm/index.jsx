@@ -8,7 +8,7 @@ const FormIn = styled.div`
     flex-direction: column;
     align-items: center;
     
-    div{
+    .formLoginDiv{
         display: flex;
         flex-direction: column;
         gap: 7px;
@@ -19,18 +19,18 @@ const FormIn = styled.div`
         align-self: center;
         margin-top: 1px;
     }
-    div:nth-child(2){
+    .formLoginDiv:nth-child(2){
         margin-top: 15px;
     }
     @media screen and (min-width: 768px) {
-        div{
+        .formLoginDiv{
             align-items: center;
             gap: 10px;
         }
-        div:nth-child(2){
+        .formLoginDiv:nth-child(2){
             margin-top: 20px;
         }
-        hr{
+        .loginLineDivision{
             width: 38vw;
             margin: 5px 0;
         }
@@ -39,20 +39,20 @@ const FormIn = styled.div`
         }
     }
     @media screen and (min-width: 1024px) and (orientation: landscape){
-        form{
+        .formLogin{
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
-        hr{
+        .loginLineDivision{
             display: flex;
             width: 22vw;
             margin-top: 1px;
         }
         
         
-        div:nth-child(2){
+        .formLoginDiv:nth-child(2){
             flex-direction: column;
             width: 51vw; 
         }
@@ -63,17 +63,17 @@ const LoginForm = () => {
     
     return(
         <FormIn>
-            <form>
-                <div>
+            <form className="formLogin">
+                <div className="formLoginDiv">
                     <TextBox placeholder="Username" />
                     <TextBox placeholder="Password" type="password" />
                 </div>
-                <div>
-                    <ButtonDefault>Login</ButtonDefault>
-                    <hr />
+                <div className="formLoginDiv">
+                    <ButtonDefault className="buttonLogin">Login</ButtonDefault>
+                    <hr className="loginLineDivision" />
                 </div>
             </form>
-            <ButtonDefault>Signup</ButtonDefault>
+            <ButtonDefault className="buttonLogin">Signup</ButtonDefault>
 
         </FormIn>
     )

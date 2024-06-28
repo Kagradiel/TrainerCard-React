@@ -5,12 +5,11 @@ import ChangesMenu from "../../components/ChangesMenu";
 import LoginForm from "../../components/LoginForm";
 
 
-
 const LoginOrganizer = styled.section`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    section{
+    .loginBody{
         padding: 15vh 0 20vh 0;
         gap: 5vh;
         display: flex;
@@ -20,35 +19,31 @@ const LoginOrganizer = styled.section`
         width: 100%;
     }
     @media screen and (min-width: 768px){
-        section{
+        .loginBody{
             padding: 25vh 0;
         } 
     }
     @media screen and (min-width: 1024px) and (orientation: landscape){
-        section{
+        .changesPosition{
+            align-self: flex-start;
+        }
+        .loginBody{
             flex-direction: row;
         } 
     }
 `
 
-const langs = [
-    {
-        lang:   'English',
-        key:    '1',
-    },
-    {
-        lang:   'Português',
-        key:    '2',
-    },
-];
+
 
 const Login = () => {
 
     return (
         <ColoredBackground>
             <LoginOrganizer>
-                <ChangesMenu languages={langs}/>
-                <section>
+                <div className="changesPosition">
+                    <ChangesMenu/>
+                </div>
+                <section className="loginBody">
                     <Title>Trainer Card</Title>
                     <LoginForm/>
                 </section>
